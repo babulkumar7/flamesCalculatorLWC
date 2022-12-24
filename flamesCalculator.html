@@ -1,0 +1,59 @@
+<template>
+    <div class="container">
+        <lightning-card>
+            <h1 class="header">Flames Calculator </h1>
+            <div class="slds-m-around_large">
+                <lightning-progress-indicator current-step={currentStep} type="path" variant="base">
+                    <lightning-progress-step label="Friendship" value="1" onclick={handleOnStepClick}>
+                    </lightning-progress-step>
+                    <lightning-progress-step label="Love" value="2" onclick={handleOnStepClick}>
+                    </lightning-progress-step>
+                    <lightning-progress-step label="Affection" value="3" onclick={handleOnStepClick}>
+                    </lightning-progress-step>
+                    <lightning-progress-step label="Marriage" value="4" onclick={handleOnStepClick}>
+                    </lightning-progress-step>
+                    <lightning-progress-step label="Enemy" value="5" onclick={handleOnStepClick}>
+                    </lightning-progress-step>
+                    <lightning-progress-step label="Siblings" value="6" onclick={handleOnStepClick}>
+                    </lightning-progress-step>
+                </lightning-progress-indicator>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_2-of-3">
+                        <div class="custom-box">
+                            <lightning-input class="yourName" required label="Your Name" title="yourName"
+                                name="yourname" onchange={yournameHandler}></lightning-input><br>
+                            <lightning-input class="CrushName" required label="Crush Name" title="CrushName"
+                                name="Crushname" onchange={CrushnameHandler}></lightning-input>
+                            <br>
+
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <div class="custom">
+                            <lightning-badge label="F - Friendship"
+                                class="slds-badge_inverse badge"></lightning-badge><br>
+                            <lightning-badge class="badge slds-badge_inverse" label="L - Love"></lightning-badge><br>
+                            <lightning-badge class="badge slds-badge_inverse"
+                                label="A - Affection"></lightning-badge><br>
+                            <lightning-badge class="badge slds-badge_inverse"
+                                label="M - Marriage"></lightning-badge><br>
+                            <lightning-badge class="badge slds-badge_inverse" label="E- Enemy"></lightning-badge><br>
+                            <lightning-badge class="badge slds-badge_inverse" label="S - Siblings"></lightning-badge>
+                            <br>
+                        </div>
+                    </div>
+                </div>              
+                <template if:true={finalimage} for:each={finalimage} for:item="con" for:index="index">
+                    <div class="slds-align_absolute-center" key={con.label}>
+                        <img src={con.icon} alt={con.label} class="slds-var-m-right_small image" />
+                    </div>
+                </template><br>
+                <h1 class="text">{finalvalue}</h1>
+
+                <lightning-button class="slds-align_absolute-center" variant="brand" label="calculate" title="calculate"
+                    name="calculate" onclick={calculate}></lightning-button><br>
+    </div>
+        </lightning-card>
+    </div>
+
+</template>
